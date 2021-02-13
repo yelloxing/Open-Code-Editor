@@ -1,11 +1,11 @@
 <!--
-    @author 心叶(yelloxing)
+    @author 你好2007
     2020年6月10日于大同
 -->
 <template>
     <div>
-        <ul class="nav" id='nav'></ul>
-        <ul class="wscode" id='wscode'>
+        <div class="nav" id='nav'></div>
+        <ul class="owe" id='owe'>
             <li class='welcome'>
                 <div>
                     <p class="logo"></p>
@@ -32,8 +32,8 @@
 </template>
 <script>
     import image2D from 'image2d';
-    import iCrush from 'icrush';
-    import nav from '../pages/nav.iCrush';
+    import QuickPaper from 'quick-paper';
+    import nav from '../pages/nav.paper';
 
     export default {
 
@@ -66,18 +66,18 @@
                 // 追加nav头
                 let navEl = image2D(`<div />`).appendTo('#nav');
                 nav.el = navEl[0];
-                nav.el._nodeName = 'I-CRUSH-COMPONENT';
+                nav.el._nodeName = 'Quick-Paper-COMPONENT';
 
-                page.navICrush = new iCrush(nav);
-                page.navICrush.info = page.data;
+                page.navQuickPaper = new QuickPaper(nav);
+                page.navQuickPaper.info = page.data;
 
                 // 追加主体内容
-                let elWscode = image2D(`<div />`).appendTo('#wscode');
-                page.component.el = elWscode[0];
-                page.component.el._nodeName = 'I-CRUSH-COMPONENT';
+                let elOwe = image2D(`<div />`).appendTo('#owe');
+                page.component.el = elOwe[0];
+                page.component.el._nodeName = 'Quick-Paper-COMPONENT';
 
-                page.wscodeICrush = new iCrush(page.component);
-                page.wscodeICrush.info = page.data;
+                page.oweQuickPaper = new QuickPaper(page.component);
+                page.oweQuickPaper.info = page.data;
 
                 // 登记起来
                 this.pages.push(page);
@@ -88,6 +88,7 @@
 
             // 监听加载界面操作
             this.on('loadPage', page => {
+
                 let flag = 'notLoad';
                 this.pages.forEach(item => {
                     if (item.id == page.id) flag = "hadLoad";
@@ -123,8 +124,8 @@
                     if (id == this.pages[index].id) {
                         let page = this.pages[index];
 
-                        page.navICrush.$$lifecycle("beforeDestroy");
-                        page.wscodeICrush.$$lifecycle("beforeDestroy");
+                        page.navQuickPaper.$$lifecycle("beforeDestroy");
+                        page.oweQuickPaper.$$lifecycle("beforeDestroy");
 
                         // 删除结点
                         image2D(document.getElementsByName(id)).remove();
@@ -132,8 +133,8 @@
                         // 删除数组中数据
                         this.pages.splice(index, 1);
 
-                        page.navICrush.$$lifecycle("destroyed");
-                        page.wscodeICrush.$$lifecycle("destroyed");
+                        page.navQuickPaper.$$lifecycle("destroyed");
+                        page.oweQuickPaper.$$lifecycle("destroyed");
 
                         break;
                     }
@@ -152,7 +153,7 @@
 </script>
 <style>
     div {
-        &>ul {
+        &>* {
             &.nav {
                 line-height: .34rem;
                 height: .34rem;
@@ -164,7 +165,7 @@
                 white-space: nowrap;
             }
 
-            &.wscode {
+            &.owe {
                 position: relative;
                 height: calc(100% - .34rem);
 

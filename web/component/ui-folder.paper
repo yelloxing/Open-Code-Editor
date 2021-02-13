@@ -1,5 +1,5 @@
 <!--
-    @author 心叶(yelloxing)
+    @author 你好2007
     2020年6月11日于大同
 -->
 <template>
@@ -11,7 +11,7 @@
             <input type="button" value="打开文件夹" @click='openFolder()'>
             <p>
                 或者你可以创建一个文件进行编辑，更多细节请进入我们的
-                <a href="javascript:void(0)" @click.stop='openGithubLink("yelloxing/Open-Code-Editor/issues")'>issue</a>
+                <a href="javascript:void(0)" @click.stop='openGithubLink("hai2007/Open-Code-Editor/issues")'>issue</a>
                 进行讨论交流，也欢迎你加入我们。
             </p>
             <input type="button" value="创建一个文件" @click='newBlankFile()'>
@@ -22,7 +22,7 @@
 <script>
 
     import { selectFolder } from '../server/$selectElectron.js';
-    import wscode from '../pages/wscode.iCrush';
+    import owe from '../pages/owe.paper';
     import folderMenu from '../directive/folder-menu.js';
 
     export default {
@@ -63,7 +63,7 @@
                 let flag = 1;
 
                 while (true) {
-                    if (document.getElementsByName("oce@wscode:未命名-" + flag).length <= 0) {
+                    if (document.getElementsByName("oce@owe:未命名-" + flag).length <= 0) {
                         break;
                     }
                     flag += 1;
@@ -73,8 +73,8 @@
                 let name = "未命名-" + flag;
 
                 this.trigger('loadPage', {
-                    id: "oce@wscode:" + name,
-                    component: wscode,
+                    id: "oce@owe:" + name,
+                    component: owe,
                     data: {
                         name,
                         type: "text/plain",

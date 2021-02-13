@@ -1,4 +1,4 @@
-const iCrushLoaderPlugin = require('icrush-loader-plug');
+const QuickPaperLoaderPlugin = require('quick-paper/loader-plug/index.js');
 
 module.exports = {
     entry: ['./web/entry.js'],
@@ -14,12 +14,12 @@ module.exports = {
     },
     module: {
         rules: [{
-            test: /\.iCrush$/,
-            loader: ['icrush-loader'],
+            test: /\.paper$/,
+            loader: ['quick-paper/loader/index.js'],
             exclude: /node_modules/
         }, {
             test: /\.(css|scss)$/,
-            loader: ['icrush-style-loader', 'css-loader', 'postcss-loader', 'sass-loader']
+            loader: ['quick-paper/style-loader/index.js', 'css-loader', 'postcss-loader', 'sass-loader']
         }, {
             test: /\.js$/,
             loader: 'babel-loader',
@@ -37,6 +37,6 @@ module.exports = {
         }]
     },
     plugins: [
-        new iCrushLoaderPlugin()
+        new QuickPaperLoaderPlugin()
     ]
 };

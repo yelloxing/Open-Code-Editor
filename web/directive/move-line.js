@@ -6,7 +6,7 @@
  * 1.type=horizontal|vertical,控制水平或者垂直方向上两边的拖拽缩放
  * 2.initSize=["",""]初始化尺寸,这是为了calc准备的,如果不是calc,请填"normal"即可
  * 
- * @author 心叶(yelloxing)
+ * @author 你好2007
  * 
  * 2020年6月9日于大同
  */

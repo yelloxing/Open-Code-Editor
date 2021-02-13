@@ -1,5 +1,5 @@
 <!--
-    @author 心叶(yelloxing)
+    @author 你好2007
     2020年6月8日于大同
 -->
 <template>
@@ -34,9 +34,9 @@
                 </div>
             </div>
             <div move-line:horizontal='initSize'></div>
-            <div class="wscode">
+            <div class="owe">
                 <!-- 文本编辑界面 -->
-                <web-studio-code></web-studio-code>
+                <open-web-editor></open-web-editor>
             </div>
         </div>
         <div class="bottom">
@@ -47,13 +47,13 @@
 <script>
 
     // 当前页面用到的局部组件
-    import uiMenu from './component/ui-menu.iCrush';/*主窗口菜单*/
-    import uiWinBtn from './component/ui-win-btn.iCrush';/*窗口右侧按钮*/
-    import uiSwitch from './component/ui-switch.iCrush';/*功能切换*/
-    import uiFolder from './component/ui-folder.iCrush';/*文件夹列表*/
-    import uiSearch from './component/ui-search.iCrush';/*全局查找*/
-    import uiPlug from './component/ui-plug.iCrush';/*安装插件*/
-    import webStudioCode from './component/web-studio-code.iCrush';/*编辑界面*/
+    import uiMenu from './component/ui-menu.paper';/*主窗口菜单*/
+    import uiWinBtn from './component/ui-win-btn.paper';/*窗口右侧按钮*/
+    import uiSwitch from './component/ui-switch.paper';/*功能切换*/
+    import uiFolder from './component/ui-folder.paper';/*文件夹列表*/
+    import uiSearch from './component/ui-search.paper';/*全局查找*/
+    import uiPlug from './component/ui-plug.paper';/*安装插件*/
+    import openWebEditor from './component/open-web-editor.paper';/*编辑界面*/
 
     import image2D from 'image2d';
 
@@ -85,7 +85,7 @@
         },
 
         // 挂载局部组件
-        component: { uiMenu, uiWinBtn, uiSwitch, webStudioCode, uiFolder, uiSearch, uiPlug },
+        component: { uiMenu, uiWinBtn, uiSwitch, openWebEditor, uiFolder, uiSearch, uiPlug },
 
         methods: {
             calcFun(index, presize, changesize) {
@@ -158,7 +158,7 @@
                     }
                 }
 
-                &.wscode {
+                &.owe {
                     background-color: #f5f5f5;
                     width: calc(100vw - 3rem);
                 }

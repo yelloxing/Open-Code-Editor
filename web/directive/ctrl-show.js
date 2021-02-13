@@ -14,7 +14,7 @@ let doit = function (el, binding) {
  * 
  * 说明:在type==flag的时候控制显示,否则隐藏
  * 
- * @author 心叶(yelloxing)
+ * @author 你好2007
  * 
  * 2020年6月9日于大同
  */

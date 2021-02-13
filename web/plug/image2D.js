@@ -6,9 +6,9 @@ import { hasClass, deleteClass } from '../server/$classSingle.js';
 /**
  * 使用方式:import image2D from "image2d";
  * 
- * 加强版本的image2D,非加强部分请查询文档: https://yelloxing.github.io/image2D/index.html
+ * 加强版本的image2D,非加强部分请查询文档: https://hai2007.gitee.io/image2D/index.html
  * 
- * @author 心叶(yelloxing)
+ * @author 你好2007
  * 
  * 2020年6月9日于大同
  */

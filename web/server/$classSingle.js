@@ -1,7 +1,7 @@
 /**
  * class原子操作
  * 
- * @author 心叶(yelloxing)
+ * @author 你好2007
  * 
  * 2020年6月9日于大同
  */

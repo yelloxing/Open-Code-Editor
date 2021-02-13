@@ -1,5 +1,5 @@
 <!--
-    @author 心叶(yelloxing)
+    @author 你好2007
     2020年6月11日于大同
 -->
 <template>
@@ -7,20 +7,18 @@
 </template>
 <script>
 
-    import WSCode from 'wscode';
+    import OpenWebEditor from 'open-web-editor';
     import image2D from 'image2d';
 
     const fs = nodeRequire('fs');
     const path = nodeRequire('path');
     const { dialog } = nodeRequire('electron').remote;
 
-    import prettify from 'wscode-prettify';
-
     export default {
         data() {
             return {
                 info: {},
-                wscode: null
+                owe: null
             };
         },
         mounted() {
@@ -28,7 +26,7 @@
 
                 let lang = this.info.type;
 
-                this.wscode = new WSCode({
+                let config = {
                     el: document.getElementsByName(this.info.id)[1],
                     content: this.info.content,
                     color: {
@@ -44,14 +42,48 @@
                         cursor: "#ff0000",
                         /*选择背景*/
                         select: "#6c6cf1"
-                    },
+                    }
 
-                    // 着色方法
-                    shader: prettify
-                });
+                };
+
+                let css_shader = {
+                    "annotation": "#6a9955",/*注释颜色*/
+                    "insign": "#555",/*符号颜色*/
+                    "selector": "#1e50b3",/*选择器*/
+                    "attrKey": "#1e83b1",/*属性名称颜色*/
+                    "attrValue": "#ac4c1e"/*属性值颜色*/
+                };
+
+                let js_shader = {
+                    "text": "#000000",/*文本颜色*/
+                    "annotation": "#6a9955",/*注释颜色*/
+                    "insign": "#555",/*符号颜色*/
+                    "key": "#ff0000",/*关键字颜色*/
+                    "string": "#ac4c1e",/*字符串颜色*/
+                    "funName": "#1e50b3",/*函数名称颜色*/
+                    "execName": "#1e83b1"/*执行方法颜色*/
+                };
+
+                let html_shader = {
+                    "text": "#000000",/*文本颜色*/
+                    "annotation": "#6a9955",/*注释颜色*/
+                    "insign": "#555",/*符号颜色*/
+                    "node": "#1e50b3",/*结点颜色*/
+                    "attrKey": "#1e83b1",/*属性名称颜色*/
+                    "attrValue": "#ac4c1e",/*属性值颜色*/
+                    "css": css_shader,
+                    "javascript": js_shader
+                };
+
+                // 着色方法
+                if (lang == 'html') config.shader = ['html', html_shader];
+                else if (lang == 'css') config.shader = ['css', css_shader];
+                else if (lang == 'javascript' || lang=='json') config.shader = ['javascript', js_shader];
+
+                this.owe = new OpenWebEditor(config);
 
                 // 文本改动更新提示
-                this.wscode.updated(() => {
+                this.owe.updated(() => {
                     image2D(document.getElementsByName(this.info.id)[0]).addClass('modify');
                 });
 
@@ -62,7 +94,7 @@
 
                     let doSave = filepath => {
                         // 写入文本
-                        fs.writeFileSync(filepath, this.wscode.valueOf(), {
+                        fs.writeFileSync(filepath, this.owe.valueOf(), {
                             encoding: 'utf8'
                         });
 
@@ -73,7 +105,7 @@
                     // 只有当前的页面是活动的，且被修改了才需要保存
                     if (navLi.hasClass('active') && navLi.hasClass('modify')) {
 
-                        let filepath = this.info.id.replace(/^oce@wscode:/, '');
+                        let filepath = this.info.id.replace(/^oce@owe:/, '');
 
                         // 首先判断是否是新建的，需要选择路径
                         if (filepath == '未命名-1') {

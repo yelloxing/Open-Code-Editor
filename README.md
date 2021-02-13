@@ -1,5 +1,5 @@
 
-<p align="center"><a href="https://github.com/yelloxing/Open-Code-Editor" target="_blank">
+<p align="center"><a href="https://github.com/hai2007/Open-Code-Editor" target="_blank">
 <img width="400" src="./web/assets/images/logo.png" alt="Open Code Editor"></a></p>
 
 📄 一个小巧且可个性化配置的代码编辑器。A small and personalized code editor.
@@ -9,9 +9,9 @@
 
 ## 开发须知
 
-- 本项目选择的web框架为[iCrush](https://github.com/yelloxing/iCrush),你可以[点击此处查阅文档](https://yelloxing.github.io/iCrush/index.html),如果有任何问题请[点击此处提问](https://github.com/yelloxing/iCrush/issues)。
+- 本项目选择的web框架为[quick-paper](https://github.com/hai2007/quick-paper),你可以[点击此处查阅文档](https://hai2007.gitee.io/quick-paper/),如果有任何问题请[点击此处提问](https://github.com/hai2007/quick-paper/issues)。
 
-- 编辑器核心库选择的是[Web Studio Code](https://github.com/yelloxing/Web-Studio-Code)用来提供编辑界面。
+- 编辑器核心库选择的是[Open-Web-Editor](https://github.com/hai2007/Open-Web-Editor)用来提供编辑界面。
 
 ## 如何启动开发？
 
@@ -69,8 +69,13 @@ npm run build-win
 npm run build-mac
 ```
 
-## License
+## 联系我们
 
-[MIT](https://github.com/yelloxing/Open-Code-Editor/blob/master/LICENSE)
+- QQ: 2501482523
+- Email: 2501482523@qq.com
 
-Copyright (c) 2020 yelloxing
+开源协议
+---------------------------------------
+[MIT](https://github.com/hai2007/quick-paper/blob/master/LICENSE)
+
+Copyright (c) 2020-2021 [hai2007](https://hai2007.gitee.io/sweethome/) 走一步，再走一步。

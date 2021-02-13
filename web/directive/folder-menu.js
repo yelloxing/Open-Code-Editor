@@ -3,7 +3,7 @@
  * 
  * 展示打开的文件夹folderPath
  * 
- * @author 心叶(yelloxing)
+ * @author 你好2007
  * 
  * 2020年6月12日于大同
  */
@@ -12,8 +12,8 @@ let folderPath = null;
 const path = nodeRequire('path');
 const fs = nodeRequire('fs');
 import image2D from 'image2d';
-import wscode from '../pages/wscode.iCrush';
-import image from '../pages/image.iCrush';
+import owe from '../pages/owe.paper';
+import image from '../pages/image.paper';
 import $fileType from '../server/$fileType';
 
 import '../assets/styles/folder.scss';
@@ -68,7 +68,7 @@ let insertList = function (el, folderPath) {
 
                     console.log(fileTypeResult);
 
-                    fileTemplate += `<li path='${filePath}' wscode-lang='${fileTypeResult.wscode}'  icon-lang='${fileTypeResult.lang}' name='${file}' type='file'>
+                    fileTemplate += `<li path='${filePath}' owe-lang='${fileTypeResult.owe}'  icon-lang='${fileTypeResult.lang}' name='${file}' type='file'>
                 <span>${file}</span>
             </li>`;
 
@@ -104,9 +104,9 @@ let insertList = function (el, folderPath) {
 
         // 如果是图片
 
-        if (el.getAttribute('wscode-lang') == 'image') {
+        if (el.getAttribute('owe-lang') == 'image') {
 
-            icrush.trigger('loadPage', {
+            quickPaper.trigger('loadPage', {
                 id: "oce@image:" + path,
                 component: image,
                 data: {
@@ -117,16 +117,16 @@ let insertList = function (el, folderPath) {
 
         }
 
-        // 默认使用文本编辑器 Web Studio Code 打开
+        // 默认使用文本编辑器 Open Web Editor 打开
 
         else {
 
-            icrush.trigger('loadPage', {
-                id: "oce@wscode:" + path,
-                component: wscode,
+            quickPaper.trigger('loadPage', {
+                id: "oce@owe:" + path,
+                component: owe,
                 data: {
                     name: el.getAttribute('name'),
-                    type: el.getAttribute('wscode-lang'),
+                    type: el.getAttribute('owe-lang'),
                     content: fs.readFileSync(path, 'utf-8'),
                     path
                 }
